@@ -101,12 +101,10 @@ endif()
 # Where HGE is located, this also builds the helper library
 add_subdirectory(src/core)
 
-# Did tutorials get enabled to be built?
 if(BUILD_TUTORIALS)
 	add_subdirectory(tutorials)
 endif(BUILD_TUTORIALS)
 
-# Are we building the tools?
 if(BUILD_TOOLS)
 	add_subdirectory(tools)
 endif(BUILD_TOOLS)
