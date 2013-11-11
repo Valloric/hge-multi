@@ -1,6 +1,8 @@
 project(tutorials)
 
-include_directories(${CMAKE_SOURCE_DIR}/src/core ${CMAKE_SOURCE_DIR}/src/core/unix ${CMAKE_SOURCE_DIR}/src/core/windows)
+include_directories(${hge_multi_SOURCE_DIR}/src/core
+                    ${hge_multi_SOURCE_DIR}/src/core/unix
+                    ${hge_multi_SOURCE_DIR}/src/core/windows)
 
 set(TUTORIAL01_SRCS
         tutorial01/hge_tut01.cpp

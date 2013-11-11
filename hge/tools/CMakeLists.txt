@@ -1,8 +1,10 @@
 project(tools)
 
-include_directories(${CMAKE_SOURCE_DIR}/src/core ${CMAKE_SOURCE_DIR}/src/core/unix ${CMAKE_SOURCE_DIR}/src/core/windows)
+include_directories(${hge_multi_SOURCE_DIR}/src/core
+                    ${hge_multi_SOURCE_DIR}/src/core/unix
+                    ${hge_multi_SOURCE_DIR}/src/core/windows)
 
-set(D ${CMAKE_SOURCE_DIR}/src)
+set(D ${hge_multi_SOURCE_DIR}/src)
 
 set(FONTCONV_SRCS
 	${D}/fontconv/fontconv.cpp
