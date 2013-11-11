@@ -1,9 +1,9 @@
-project(hge_unix)
+project(hge_multi)
 cmake_minimum_required(VERSION 2.8)
 
 option(BUILD_TUTORIALS "Build the tutorial samples" OFF)
 option(BUILD_TOOLS "Build the library tools" OFF)
-option(USE_INTERNAL_ZLIB "Use the internal ZLib" ON)
+option(USE_INTERNAL_ZLIB "Use internal ZLib" ON)
 option(BUILD_SINGLE_LIB "Build a single library for HGE and Helpers" ON)
 
 if(UNIX OR APPLE)
@@ -13,8 +13,14 @@ if(UNIX OR APPLE)
 	# Add our option  for using CxImage,  default is on
 	option(USE_CXIMAGE "Use CXImage (no)" ON)
 
+  if (USE_INTERNAL_OPENAL)
+    set(OPENAL_LIBRARY openal)
+    set(OPENAL_INCLUDE_DIR "${OpenAL_SOURCE_DIR}/include")
+  else()
+    find_package(OpenAL REQUIRED)
+  endif()
+
 	find_package(SDL REQUIRED)
-	find_package(OpenAL REQUIRED)
 	find_package(Vorbis REQUIRED)
 	find_package(JPEG REQUIRED)
 	find_package(PNG REQUIRED)
@@ -35,23 +41,23 @@ if(UNIX OR APPLE)
 	endif(USE_CXIMAGE)
 
 	include_directories(
-		${SDL_INCLUDE_DIR}
 		${OPENAL_INCLUDE_DIR}
+		${SDL_INCLUDE_DIR}
 		${VORBIS_INCLUDE_DIR}
 		${IL_INCLUDE_DIR}
 		${ZLIB_INCLUDE_DIR}
 		${JPEG_INCLUDE_DIR}
 		${PNG_INCLUDE_DIR}
-		${CMAKE_SOURCE_DIR}/include
-		${CMAKE_SOURCE_DIR}/core
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/core
 	)
 
 	add_definitions(-D_LINUX)
 
 	# The libraries to link against for HGE, and also for applications using it
 	set(HGE_LIBRARIES
-		${SDL_LIBRARY}
 		${OPENAL_LIBRARY}
+		${SDL_LIBRARY}
 		${VORBISFILE_LIBRARY}
 		${IL_LIBRARIES}
 		${ILU_LIBRARIES}

@@ -109,7 +109,7 @@ else(UNIX OR APPLE)
 	)
 endif(UNIX OR APPLE)
 
-set(HS ${CMAKE_SOURCE_DIR}/src/helpers)
+set(HS ${hge_multi_SOURCE_DIR}/src/helpers)
 set(HGE_HELPER_SRCS
 	${HS}/hgeanim.cpp
 	${HS}/hgecolor.cpp
@@ -147,7 +147,7 @@ install(TARGETS ${HGE_TARGETS}
 	ARCHIVE DESTINATION lib
 )
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
 	DESTINATION include/hge
 	FILES_MATCHING PATTERN "*.h"
 )
