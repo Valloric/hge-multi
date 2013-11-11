@@ -6,7 +6,8 @@ changes on top. That will hopefully change in the future.
 The idea is to get _one_ version of HGE running on Windows, Linux and Mac OS X.
 Vanilla HGE is Windows only, hge-unix is Mac & Linux.
 
-There is NO support. Use it as is or don't. Pull requests welcome.
+**There is absolutely NO support.**  It might or it might not work for you. Use
+it as is or don't. Pull requests welcome.
 
 ### Original hge-unix README
 
