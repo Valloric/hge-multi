@@ -1,6 +1,6 @@
 // BOOL is defined in Cocoa headers, too.
 #define BOOL ___HGE__BOOL___
-#include "hge_impl_unix.h"
+#include "unix/hge_impl.h"
 #undef BOOL
 
 #if !PLATFORM_MACOSX
