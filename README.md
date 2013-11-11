@@ -1,3 +1,14 @@
+## Cross-platform HGE
+
+This is a work in progress; it's based on hge-unix with (currently) very few
+changes on top. That will hopefully change in the future.
+
+The idea is to get _one_ version of HGE running on Windows, Linux and Mac OS X.
+Vanilla HGE is Windows only, hge-unix is Mac & Linux.
+
+There is NO support. Use it as is or don't. Pull requests welcome.
+
+### Original hge-unix README
 
 This is a Mac and Unix port of HGE. Ryan C. Gordon did the initial porting
 work for Red Marble Games, and it is shipping in the Mac versions of several
@@ -26,13 +37,13 @@ genres: you could create everything from a simple puzzle to advanced
 multilayered platformer or strategy without even thinking of any non
 game logic code! And you don't have to know anything about "window
 messages", DirectX programming and all that stuff. Instead you can
-start developing your own game within 15 minutes! 
+start developing your own game within 15 minutes!
 
 HGE runs on Microsoft Windows 98, 2000, NT, ME, XP and requires
 DirectX 8.0. It will run even on low-end video cards, including
 built in video cards such as Intel Solano (i815 chipset). HGE can
 be used with virtually any C++ compiler including Visual C++,
-Borland C++, MinGW and Metrowerks Codewarrior. 
+Borland C++, MinGW and Metrowerks Codewarrior.
 
 See documentation for details.
 See license.txt for licensing information.
