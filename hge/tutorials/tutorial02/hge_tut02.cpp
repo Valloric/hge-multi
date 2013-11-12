@@ -131,7 +131,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 			// If one of the data files is not found, display
 			// an error message and shutdown.
 #ifdef PLATFORM_UNIX
-			fprintf(stderr, "Error: Can't load menu.wav or particles.png\n");
+			fprintf(stderr, "Error: Can't load menu.ogg or particles.png\n");
 #else
 			MessageBox(NULL, "Can't load menu.wav or particles.png", "Error", MB_OK | MB_ICONERROR | MB_APPLMODAL);
 #endif
