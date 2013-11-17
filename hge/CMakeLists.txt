@@ -40,7 +40,7 @@ if(UNIX OR APPLE)
 		message(FATAL_ERROR "DevIL is not ready to be used yet")
 	endif(USE_CXIMAGE)
 
-	include_directories(
+  set( HGE_ALL_INCLUDES
 		${OPENAL_INCLUDE_DIR}
 		${SDL_INCLUDE_DIR}
 		${VORBIS_INCLUDE_DIR}
@@ -50,7 +50,10 @@ if(UNIX OR APPLE)
 		${PNG_INCLUDE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/core
+    CACHE STRING "HGE include dirs"
 	)
+
+  include_directories( ${HGE_ALL_INCLUDES} )
 
 	add_definitions(-D_LINUX)
 
