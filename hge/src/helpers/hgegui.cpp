@@ -84,6 +84,22 @@ void hgeGUI::DelCtrl(int id)
 	}
 }
 
+void hgeGUI::DelCtrlAll()
+{
+	hgeGUIObject *ctrl = ctrls;
+
+	while( ctrl )
+	{
+		hgeGUIObject *tempctrl = ctrl;
+
+		ctrl = ctrl->next;
+
+		delete tempctrl;
+	}
+
+	ctrls = 0;
+}
+
 hgeGUIObject* hgeGUI::GetCtrl(int id) const
 {
 	hgeGUIObject *ctrl=ctrls;
@@ -279,7 +295,7 @@ int hgeGUI::Update(float dt)
 		}
 	}
 
-// Handle keys	
+// Handle keys
 
 	key=hge->Input_GetKey();
 	if(((navmode & HGEGUI_LEFTRIGHT) && key==HGEK_LEFT) ||

@@ -49,7 +49,7 @@ public:
 	virtual bool	KeyClick(int key, int chr) { return false; }
 
 	virtual void	SetColor(DWORD _color) { color=_color; }
-	
+
 	int				id;
 	bool			bStatic;
 	bool			bVisible;
@@ -80,6 +80,7 @@ public:
 
 	void			AddCtrl(hgeGUIObject *ctrl);
 	void			DelCtrl(int id);
+	void			DelCtrlAll();
 	hgeGUIObject*	GetCtrl(int id) const;
 
 	void			MoveCtrl(int id, float x, float y);
@@ -91,7 +92,7 @@ public:
 	void			SetColor(DWORD color);
 	void			SetFocus(int id);
 	int				GetFocus() const;
-	
+
 	void			Enter();
 	void			Leave();
 	void			Reset();
