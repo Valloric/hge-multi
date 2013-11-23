@@ -8,7 +8,7 @@
 
 #define NOCRYPT
 // #define NOUNCRYPT
-#include "ZLIB/unzip.h"
+#include <contrib/minizip/unzip.h>
 #undef DWORD
 #include "hge_impl.h"
 

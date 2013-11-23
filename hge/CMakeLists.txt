@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 2.8)
 
 option(BUILD_TUTORIALS "Build the tutorial samples" OFF)
 option(BUILD_TOOLS "Build the library tools" OFF)
-option(USE_INTERNAL_ZLIB "Use internal ZLib" ON)
 option(BUILD_SINGLE_LIB "Build a single library for HGE and Helpers" ON)
 
 if(UNIX OR APPLE)
@@ -26,10 +25,13 @@ if(UNIX OR APPLE)
   find_package(PNG REQUIRED)
   find_package(OpenGL REQUIRED)
 
-  # If we're using the external library, we must find it
-  if(NOT USE_INTERNAL_ZLIB)
+  # TODO: HGE tools should also use new zlib instead of internal copies
+  if (USE_INTERNAL_ZLIB)
+    set(ZLIB_LIBRARY zlibstatic)
+    set(ZLIB_INCLUDE_DIR "${zlib_SOURCE_DIR};${zlib_BINARY_DIR}")
+  else()
     find_package(ZLIB REQUIRED)
-  endif(NOT USE_INTERNAL_ZLIB)
+  endif()
 
   if(USE_CXIMAGE)
     # CxImage required defines

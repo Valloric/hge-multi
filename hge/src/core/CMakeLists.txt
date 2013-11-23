@@ -7,31 +7,10 @@ set(HGE_SRCS
 	common/demo.cpp
 	common/random.cpp
 	common/timer.cpp
+  # Not part of the zlib library but in contrib
+  ${zlib_SOURCE_DIR}/contrib/minizip/ioapi.c
+  ${zlib_SOURCE_DIR}/contrib/minizip/unzip.c
 )
-
-# Zlib source: internally included or an external library
-if(USE_INTERNAL_ZLIB)
-	set(HGE_SRCS
-		${HGE_SRCS}
-		ZLIB/adler32.c
-		ZLIB/crc32.c
-		ZLIB/inffast.c
-		ZLIB/inflate.c
-		ZLIB/inftrees.c
-		ZLIB/ioapi.c
-		ZLIB/trees.c
-		ZLIB/uncompr.c
-		ZLIB/unzip.c
-		ZLIB/zutil.c
-	)
-else(USE_INTERNAL_ZLIB)
-	set(HGE_SRCS
-		${HGE_SRCS}
-		# AFAICT not part of zlib proper
-		ZLIB/ioapi.c
-		ZLIB/unzip.c
-	)
-endif(USE_INTERNAL_ZLIB)
 
 # Are we using CxImage?
 if(USE_CXIMAGE)

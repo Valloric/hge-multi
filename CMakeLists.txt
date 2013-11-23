@@ -2,6 +2,7 @@ cmake_minimum_required( VERSION 2.8 )
 project( hge_everything )
 
 option( USE_INTERNAL_OPENAL "Use internal OpenAL" ON )
+option( USE_INTERNAL_ZLIB "Use internal ZLib" ON )
 
 #############################################################################
 
@@ -39,6 +40,10 @@ endif()
 
 if ( USE_INTERNAL_OPENAL )
   add_subdirectory( openal-soft )
+endif()
+
+if ( USE_INTERNAL_ZLIB )
+  add_subdirectory( zlib )
 endif()
 
 add_subdirectory( hge )
