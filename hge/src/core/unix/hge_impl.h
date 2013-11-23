@@ -17,7 +17,12 @@
 #include "SDL.h"
 
 #define GL_GLEXT_LEGACY 1
-#include "gl.h"
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
+#include <gl/gl.h>
+#endif
 
 #ifndef WINGDIAPI
 #define WINGDIAPI

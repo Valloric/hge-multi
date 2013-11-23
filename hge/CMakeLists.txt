@@ -24,6 +24,7 @@ if(UNIX OR APPLE)
 	find_package(Vorbis REQUIRED)
 	find_package(JPEG REQUIRED)
 	find_package(PNG REQUIRED)
+  find_package(OpenGL REQUIRED)
 
 	# If we're using the external library, we must find it
 	if(NOT USE_INTERNAL_ZLIB)
@@ -42,6 +43,7 @@ if(UNIX OR APPLE)
 
   set( HGE_ALL_INCLUDES
 		${OPENAL_INCLUDE_DIR}
+    ${OPENGL_INCLUDE_DIR}
 		${SDL_INCLUDE_DIR}
 		${VORBIS_INCLUDE_DIR}
 		${IL_INCLUDE_DIR}
