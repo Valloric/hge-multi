@@ -6,8 +6,6 @@
 ** Core functions implementation: resources management
 */
 
-#define NOCRYPT
-// #define NOUNCRYPT
 #include <contrib/minizip/unzip.h>
 #undef DWORD
 #include "hge_impl.h"

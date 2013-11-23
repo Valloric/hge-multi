@@ -9,9 +9,6 @@
 #include "hge_impl.h"
 
 #include <zlib.h>
-
-#define NOCRYPT
-//#define NOUNCRYPT
 #include <contrib/minizip/unzip.h>
 
 
