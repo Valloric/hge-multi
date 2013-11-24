@@ -9,9 +9,6 @@ if(UNIX OR APPLE)
   # Needed for FindVorbis
   set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-  # Add our option  for using CxImage,  default is on
-  option(USE_CXIMAGE "Use CXImage (no)" ON)
-
   if (USE_INTERNAL_OPENAL)
     set(OPENAL_LIBRARY openal)
     set(OPENAL_INCLUDE_DIR "${OpenAL_SOURCE_DIR}/include")
@@ -21,8 +18,6 @@ if(UNIX OR APPLE)
 
   find_package(SDL REQUIRED)
   find_package(Vorbis REQUIRED)
-  find_package(JPEG REQUIRED)
-  find_package(PNG REQUIRED)
   find_package(OpenGL REQUIRED)
 
   # TODO: HGE tools should also use new zlib instead of internal copies
@@ -33,25 +28,19 @@ if(UNIX OR APPLE)
     find_package(ZLIB REQUIRED)
   endif()
 
-  if(USE_CXIMAGE)
-    # CxImage required defines
-    add_definitions(-DSUPPORT_CXIMAGE)
-  else(USE_CXIMAGE)
-    # If we're not using CxImage, we'll use this, more common external library
-    find_package(DevIL REQUIRED)
-    # Unfortunately though, it's not implemented/working ;)
-    message(FATAL_ERROR "DevIL is not ready to be used yet")
-  endif(USE_CXIMAGE)
+  # CxImage required defines
+  add_definitions(-DSUPPORT_CXIMAGE)
+  set(CXIMAGE_LIBRARY cximage)
+  set(CXIMAGE_INCLUDE_DIR "${cximage_SOURCE_DIR}")
 
+  # TODO: Most of these should be marked SYSTEM
   set( HGE_ALL_INCLUDES
     ${OPENAL_INCLUDE_DIR}
     ${OPENGL_INCLUDE_DIR}
     ${SDL_INCLUDE_DIR}
     ${VORBIS_INCLUDE_DIR}
-    ${IL_INCLUDE_DIR}
+    ${CXIMAGE_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
-    ${JPEG_INCLUDE_DIR}
-    ${PNG_INCLUDE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/core
     CACHE STRING "HGE include dirs"
@@ -66,11 +55,8 @@ if(UNIX OR APPLE)
     ${OPENAL_LIBRARY}
     ${SDL_LIBRARY}
     ${VORBISFILE_LIBRARY}
-    ${IL_LIBRARIES}
-    ${ILU_LIBRARIES}
     ${ZLIB_LIBRARY}
-    ${JPEG_LIBRARY}
-    ${PNG_LIBRARY}
+    ${CXIMAGE_LIBRARY}
   )
 
   set(USE_SHARED SHARED)

@@ -38,12 +38,16 @@ endif()
 
 #############################################################################
 
-if ( USE_INTERNAL_OPENAL )
-  add_subdirectory( openal-soft )
-endif()
+if (UNIX OR APPLE)
+  if ( USE_INTERNAL_OPENAL )
+    add_subdirectory( openal-soft )
+  endif()
 
-if ( USE_INTERNAL_ZLIB )
-  add_subdirectory( zlib )
+  if ( USE_INTERNAL_ZLIB )
+    add_subdirectory( zlib )
+  endif()
+
+  add_subdirectory( cximage )
 endif()
 
 add_subdirectory( hge )

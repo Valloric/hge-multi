@@ -24,7 +24,7 @@
 #ifdef _T
 #undef _T
 #endif
-#include "CxImage/ximage.h"
+#include "ximage.h"
 #else
 /* Use DevIL instead of CXImage */
 #include <IL/il.h>
