@@ -33,20 +33,27 @@ if(UNIX OR APPLE)
   set(CXIMAGE_LIBRARY cximage)
   set(CXIMAGE_INCLUDE_DIR "${cximage_SOURCE_DIR}")
 
-  # TODO: Most of these should be marked SYSTEM
-  set( HGE_ALL_INCLUDES
+  set( HGE_EXTERNAL_INCLUDES
     ${OPENAL_INCLUDE_DIR}
     ${OPENGL_INCLUDE_DIR}
     ${SDL_INCLUDE_DIR}
     ${VORBIS_INCLUDE_DIR}
     ${CXIMAGE_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/core
-    CACHE STRING "HGE include dirs"
+    CACHE STRING "HGE external include dirs"
   )
 
-  include_directories( ${HGE_ALL_INCLUDES} )
+  include_directories(
+    SYSTEM
+    ${HGE_EXTERNAL_INCLUDES} )
+
+  set( HGE_INTERNAL_INCLUDES
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/core
+    CACHE STRING "HGE internal include dirs" )
+
+  include_directories(
+    ${HGE_INTERNAL_INCLUDES} )
 
   add_definitions(-D_LINUX)
 
