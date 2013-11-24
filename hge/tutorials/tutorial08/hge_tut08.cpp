@@ -25,6 +25,8 @@
 #include "../../include/hgedistort.h"
 #include "../../include/hgefont.h"
 
+#include <time.h>
+
 // Pointer to the HGE interface (helper classes require this to work)
 
 HGE			*hge=0;
