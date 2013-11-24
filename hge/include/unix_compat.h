@@ -19,16 +19,10 @@
 #if (PLATFORM_UNIX)
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
 #include <unistd.h>
 #include <assert.h>
-#include <errno.h>
 #include <limits.h>
 #include <sys/stat.h>
-#include <sys/time.h>
-#include <time.h>
 
 #include "SDL.h"
 
