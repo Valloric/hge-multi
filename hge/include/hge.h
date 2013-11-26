@@ -11,6 +11,7 @@
 #define HGE_H
 
 #include "unix_compat.h"
+#include <cstdint>
 
 #ifdef _WINDOWS
 #include <windows.h>
@@ -58,9 +59,9 @@
 */
 #ifdef _WINDOWS
 #ifndef DWORD
-typedef unsigned long       DWORD;
-typedef unsigned short      WORD;
-typedef unsigned char       BYTE;
+typedef unsigned uint32_t DWORD;
+typedef unsigned uint16_t WORD;
+typedef unsigned uint8_t  BYTE;
 #endif
 #endif
 
@@ -87,7 +88,7 @@ typedef unsigned char       BYTE;
 /*
 ** HGE Handle types
 */
-typedef uintptr_t  HTEXTURE;
+typedef uintptr_t HTEXTURE;
 typedef uintptr_t HTARGET;
 typedef uintptr_t HEFFECT;
 typedef uintptr_t HMUSIC;
