@@ -1,3 +1,9 @@
+# THIS PROJECT IS DEAD
+
+Just use [SFML](http://www.sfml-dev.org/). You'll thank me later.
+
+I'm leaving the code here in case someone wants to fork it and continue development.
+
 ## Cross-platform HGE
 
 This is a work in progress; it's based on hge-unix with (currently) very few
