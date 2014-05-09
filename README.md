@@ -2,7 +2,8 @@
 
 Just use [SFML](http://www.sfml-dev.org/). You'll thank me later.
 
-I'm leaving the code here in case someone wants to fork it and continue development.
+Please don't send pull requests; they won't be looked at. I'm leaving the code 
+here in case someone wants to fork it and continue development.
 
 ## Cross-platform HGE
 
@@ -13,7 +14,7 @@ The idea is to get _one_ version of HGE running on Windows, Linux and Mac OS X.
 Vanilla HGE is Windows only, hge-unix is Mac & Linux.
 
 **There is absolutely NO support.**  It might or it might not work for you. Use
-it as is or don't. Pull requests welcome.
+it as is or don't.
 
 ### Original hge-unix README
 
